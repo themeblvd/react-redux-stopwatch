@@ -2,4 +2,4 @@
 
 This a simple stopwatch app, built with React and Redux.
 
-![Project Screenshot](https://raw.githubusercontent.com/themeblvd/react-redux-stopwatch/master/screenshot.jpg)
+![Project Screenshot](https://raw.githubusercontent.com/themeblvd/react-redux-stopwatch/master/screenshot.png)
