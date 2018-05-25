@@ -1,0 +1,64 @@
+body {
+    background: #101010;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+//
+// Timer
+//
+
+.timer {
+    font-size: 140px;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 50px;
+
+    span {
+        display: inline-block;
+        width: 1.4em;
+    }
+    span:last-child {
+        width: 0.7em;
+    }
+}
+
+//
+// Controls
+//
+
+.btn {
+    font-weight: bold;
+
+    &.start {
+        background-color: #16a085;
+        color: #fff;
+
+        &:hover,
+        &:focus {
+            background-color: darken(#16a085, 10%);
+        }
+    }
+    &.stop {
+        background-color: #e74c3c;
+        color: #fff;
+
+        &:hover,
+        &:focus {
+            background-color: darken(#e74c3c, 10%);
+        }
+    }
+    &.reset {
+        background-color: #3498db;
+        color: #fff;
+
+        &:hover,
+        &:focus {
+            background-color: darken(#3498db, 10%);
+        }
+    }
+}
