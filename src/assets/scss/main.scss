@@ -33,6 +33,7 @@ body {
 
 .btn {
     font-weight: bold;
+    outline: none !important;
 
     &.start {
         background-color: #16a085;
@@ -60,5 +61,9 @@ body {
         &:focus {
             background-color: darken(#3498db, 10%);
         }
+    }
+    &.muted {
+        cursor: default;
+        opacity: 0.25;
     }
 }

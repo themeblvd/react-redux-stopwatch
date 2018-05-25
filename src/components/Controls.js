@@ -6,41 +6,54 @@ class Controls extends Component {
     constructor() {
         super();
         this.state = {
-            interval: false
+            interval: false,
+            isRunning: false
         };
     }
 
     handleStart = event => {
-        const increaseTimeBy = this.props.increaseTimeBy;
+        if (!this.state.isRunning) {
+            const increaseTimeBy = this.props.increaseTimeBy;
 
-        var interval = setInterval(function() {
-            increaseTimeBy(100);
-        }, 100);
+            var interval = setInterval(function() {
+                increaseTimeBy(100);
+            }, 100);
 
-        this.setState({
-            interval: interval
-        });
+            this.setState({
+                interval: interval,
+                isRunning: true
+            });
+        }
     };
 
     handleStop = event => {
-        var interval = clearInterval(this.state.interval);
+        if (this.state.isRunning) {
+            var interval = clearInterval(this.state.interval);
 
-        this.setState({
-            interval: interval
-        });
+            this.setState({
+                interval: interval,
+                isRunning: false
+            });
+        }
     };
 
     handleReset = event => {
-        this.props.resetTimer();
+        if (!this.state.isRunning) {
+            this.props.resetTimer();
+            this.setState({ isRunning: false });
+        }
     };
 
     render() {
-        console.log(this.props.time);
         return (
             <ul className="controls list-inline">
                 <li>
                     <button
-                        className="btn btn-xl start"
+                        className={
+                            this.state.isRunning
+                                ? 'btn btn-xl start muted'
+                                : 'btn btn-xl start'
+                        }
                         onClick={this.handleStart}
                     >
                         Start
@@ -48,7 +61,11 @@ class Controls extends Component {
                 </li>
                 <li>
                     <button
-                        className="btn btn-xl stop"
+                        className={
+                            this.state.isRunning
+                                ? 'btn btn-xl stop'
+                                : 'btn btn-xl stop muted'
+                        }
                         onClick={this.handleStop}
                     >
                         Stop
@@ -56,7 +73,11 @@ class Controls extends Component {
                 </li>
                 <li>
                     <button
-                        className="btn btn-xl reset"
+                        className={
+                            this.state.isRunning || !this.props.time
+                                ? 'btn btn-xl reset muted'
+                                : 'btn btn-xl reset'
+                        }
                         onClick={this.handleReset}
                     >
                         Reset
