@@ -1,6 +1,6 @@
 import { createStore } from 'redux';
 
-const initialState = 10;
+const initialState = 0;
 
 const INCREASE_TIME_BY = 'INCREASE_TIME_BY';
 const RESET_TIMER = 'RESET_TIMER';
